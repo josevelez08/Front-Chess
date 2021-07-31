@@ -1,6 +1,5 @@
 import React from "react";
-
-import RouteChess from './route'
+import RouteChess from './components/route/route'
 
 
 

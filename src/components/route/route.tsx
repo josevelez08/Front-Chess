@@ -5,8 +5,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import Home from './Home';
-import Board from './Board';
+import Home from '../../pages/home/Home';
+import Board from '../../pages/board/Board';
 
 export default function RouteChess() {
     return (

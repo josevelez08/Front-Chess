@@ -1,7 +1,11 @@
 #board {
     position: relative;
     left: 500px;
+    z-index: 0;
   }
-#black_king {
+  #black_king {
     position: absolute;
+    top: 70px;
+    z-index: 1;
+    left: 290px;
 }

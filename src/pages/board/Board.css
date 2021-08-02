@@ -1,0 +1,7 @@
+#board {
+    position: relative;
+    left: 500px;
+  }
+#black_king {
+    position: absolute;
+}

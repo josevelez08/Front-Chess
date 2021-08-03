@@ -1,9 +1,17 @@
 export class Position {
-  col: number;
-  row: number;
+  col: number = 0;
+  row: number = 0;
 
-  constructor(col: number = 0, row: number = 0) {
-    this.col = col;
-    this.row = row;
+  constructor(col: any);
+  constructor(col: any, row: number = 0) {
+    if (typeof col === 'string') {
+      this.col = col.charCodeAt(0) - 'A'.charCodeAt(0);
+      this.row = col.charCodeAt(1) - '1'.charCodeAt(0);
+    }
+
+    if (typeof col === 'number') {
+      this.col = col;
+      this.row = row;
+    }
   }
 }

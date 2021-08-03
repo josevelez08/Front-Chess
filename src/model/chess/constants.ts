@@ -1,36 +1,37 @@
-export const EMPTY_BOX = '-';
+export enum ChessConstants {
+  EMPTY_BOX = '-',
 
-export const PAWN = 'p';
+  PAWN = 'p',
 
-export const KNIGHT = 'c';
+  KNIGHT = 'c',
 
-export const BISHOP = 'a';
+  BISHOP = 'a',
 
-export const ROOK = 't';
+  ROOK = 't',
 
-export const QUEEN = 'q';
+  QUEEN = 'q',
 
-export const KING = 'r';
+  KING = 'r',
 
-export const CASTLING_KING_SIDE = 1;
+  CASTLING_KING_SIDE = 1,
 
-export const CASTLING_QUEEN_SIDE = 2;
+  CASTLING_QUEEN_SIDE = 2,
 
-export const NO_CASTLING = 0;
+  NO_CASTLING = 0,
 
-export const BOTH_CASTLING = CASTLING_QUEEN_SIDE || CASTLING_QUEEN_SIDE;
+  BOTH_CASTLING = 3,
 
-export const COLS = 8;
+  COLS = 8,
 
-export const ROWS = 8;
+  ROWS = 8,
 
-export const WHITE = 1;
+  WHITE = 1,
 
-export const BLACK = -1;
+  BLACK = -1,
 
-export const DRAW = 0;
+  DRAW = 0,
 
-export const OPENED = 2;
+  OPENED = 2,
 
-export const INITIAL_CHESS_BOARD =
-  'tcaqractpppppppp--------------------------------PPPPPPPPTCAQRACT';
+  INITIAL_CHESS_BOARD = 'tcaqractpppppppp--------------------------------PPPPPPPPTCAQRACT',
+}

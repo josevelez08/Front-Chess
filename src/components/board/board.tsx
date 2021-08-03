@@ -1,7 +1,7 @@
 import React from 'react';
 import './Board.scss';
 import ChessBoard from '../../assets/img/board.png';
-import KingBlack from '../../assets/img/King_black.png';
+import KingBlack from '../../assets/img/king_dark.png';
 
 export function Board() {
   return (

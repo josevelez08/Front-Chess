@@ -2,7 +2,6 @@ export class Position {
   col: number = 0;
   row: number = 0;
 
-  constructor(col: any);
   constructor(col: any, row: number = 0) {
     if (typeof col === 'string') {
       this.col = col.charCodeAt(0) - 'A'.charCodeAt(0);

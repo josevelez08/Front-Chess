@@ -1,6 +1,6 @@
 import React from 'react';
-import './Board.css';
-import ChessBoard from '../../assets/img/chess-board.jpg';
+import './Board.scss';
+import ChessBoard from '../../assets/img/board.png';
 import KingBlack from '../../assets/img/King_black.png';
 
 export function Board() {

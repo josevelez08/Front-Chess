@@ -14,3 +14,13 @@ export class Position {
     }
   }
 }
+
+
+const myP = new Position("A3");
+
+const myP3 = new Position(1,3);
+
+
+
+
+

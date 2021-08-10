@@ -1,1 +1,3 @@
-export class Knight {}
+import { Piece } from './piece';
+
+export class Bishop extends Piece {}

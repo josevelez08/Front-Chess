@@ -14,4 +14,8 @@ export class Pawn extends Piece implements IPiece {
   public copy(): Piece {
     return {} as Piece;
   }
+
+  pieceString(): string {
+    return '';
+  }
 }

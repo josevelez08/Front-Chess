@@ -2,7 +2,7 @@ import { Bishop } from './bishop';
 import { Board } from './board';
 import { ChessConstants } from './constants';
 import { King } from './king';
-import { Knight } from './Knight';
+import { Knight } from './knight';
 import { Movement } from './movement';
 import { Pawn } from './pawn';
 import { Position } from './position';
@@ -12,15 +12,15 @@ import { Rook } from './rook';
 export class Piece {
   constructor(protected color: number, protected position: Position) {}
   //return the piece's position
-  getPosition() {
+  getPosition(): Position | null | undefined {
     return this.position;
   }
 
-  setPosition(position: Position) {
+  public setPosition(position: Position):void | null | undefined {
     this.position = position;
   }
 
-  getColor() {
+  public getColor(): number | null | undefined {
     return this.color;
   }
 
@@ -50,6 +50,13 @@ export class Piece {
       case ChessConstants.EMPTY_BOX:
         return null;
     }
+  }
+  public static pieceString(piece: Piece & IPiece){
+    if(piece == null)
+    {
+      return ChessConstants.EMPTY_BOX;
+    }
+    return (piece.color === ChessConstants.WHITE)? piece.pieceString() : piece.pieceString().toUpperCase();
   }
 }
 

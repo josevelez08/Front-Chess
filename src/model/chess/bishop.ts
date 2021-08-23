@@ -7,22 +7,21 @@ import { ChessConstants } from './constants';
 
 
 export class Bishop extends PiezeLong {
-    constructor(position: Position, color: number)
-    {
+    constructor(color: number, position: Position,) {
         super(position,color);
     }
+
     private deltabishop:number[][] = [[1,-1], [1,1], [-1,1], [-1,-1]]; 
 
     public copy():Piece{
-        return new Bishop(new Position(this.position.col,this.position.row), this.color);
+        return new Bishop(this.color, new Position(this.position.col,this.position.row));
     }
 
-    public pieceString():string{
+    public pieceString():string {
         return ChessConstants.BISHOP;
     }
 
-    public possibleMovements(board: Board):Array<Movement>
-    {
+    public possibleMovements(board: Board):Array<Movement> {
         let movements:Array<Movement> = [];
         let iterator:number;
 
@@ -33,8 +32,7 @@ export class Bishop extends PiezeLong {
         return movements;
     }
 
-    public canEat(board: Board, delta:Position): boolean
-    {
+    public canEat(board: Board, delta:Position): boolean {
         let iterator:number;
 
         for(iterator=0;iterator<4;iterator++)

@@ -9,7 +9,7 @@ export class PiezeLong extends Piece {
     {
         super(color,position);
     }
-    
+
     public possibleMovements(board: Board, deltacolumn: number, deltarow: number):Array<Movement>
     {
         const movements:Array<Movement> = [];
@@ -26,7 +26,8 @@ export class PiezeLong extends Piece {
             {
                 movements.push(new Movement(this.position,movementcol, movementrow))
             }
-            else{
+            else 
+            {
                 free = false;
                 if(Board.insideBoard(this.position.col+movementcol, this.position.row+movementrow) && board.getPiece(this.position.col+movementcol,this.position.row+movementrow).getColor() != this.color)
                 {
@@ -40,7 +41,7 @@ export class PiezeLong extends Piece {
         let column: number = this.position.col;
         let row:number = this.position.row;
         let iterator:number;
-        
+
         for (iterator=1;iterator<ChessConstants.COLS+1; iterator++)
         {
             column += deltacolum;

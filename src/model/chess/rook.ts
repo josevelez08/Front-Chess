@@ -14,7 +14,7 @@ export class Rook extends PiezeLong {
 
 
     public copy(): Piece {
-        return new Rook(this.color ,new Position(this.position.col, this.position.row))
+        return new Rook( this.color, new Position(this.position.col, this.position.row));
       }
 
 

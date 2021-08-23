@@ -9,12 +9,14 @@ export class Pawn extends Piece implements IPiece {
   constructor(color:number, position: Position)
   {
     super(color, position);
+    position = this.position;
+    color = this.color;
   }
-  
   private static rowProgressWhite: number = 1;
   private static rowProgressBlack = ChessConstants.ROWS-2;
   private static rowCrowWhite = ChessConstants.ROWS-1;
   private static rowCrowBlack = 0;
+  
   
   
   public copy(): Piece {
@@ -44,18 +46,22 @@ export class Pawn extends Piece implements IPiece {
 
     // check right diagonal capture
     if(Board.insideBoard(this.position.col-1,this.position.row+this.color) && 
-        ! board.empty(this.position.col-1, this.position.row+this.color) &&
-        board.getPiece(this.position.col - 1, this.position.row+this.color).getColor() != this.color)
+    board.empty(this.position.col-1, this.position.row+this.color) &&
+    board.getPiece(this.position.col - 1, this.position.row+this.color).getColor() != this.color)
     {
-      this.increaseMovements(movements, -1, this.color, rowCrown);
+        this.increaseMovements(movements, -1, this.color, rowCrown);
     }
 
+    // check left diagonal capture
+    if(Board.insideBoard(this.position.col+1,this.position.row+this.color) &&
+    ! board.empty(this.position.col+1, this.position.row+this.color) &&
+    board.getPiece(this.position.col+1, this.position.row+this.color).getColor() != this.color)
+    {
+      this.increaseMovements(movements, +1, this.color, rowCrown);
+    }
+      //HERE I HAVE TO WRITHE THE IN PASSING FUNCTION
 
-
-
-
-
-    return [];
+    return movements;
   }
   private increaseMovements(movements:Array<Movement>, dx:number, dy:number, rowcrown: number){
   
@@ -74,7 +80,7 @@ export class Pawn extends Piece implements IPiece {
       else{
         movements.push(new Movement(this.position, dx, dy, ChessConstants.QUEEN.toUpperCase()));
         movements.push(new Movement(this.position, dx, dy, ChessConstants.ROOK.toUpperCase()));
-        movements.push(new Movement(this.position, dx, dy, ChessConstants.BISHOP));
+        movements.push(new Movement(this.position, dx, dy, ChessConstants.BISHOP.toUpperCase()));
         movements.push(new Movement(this.position, dx, dy, ChessConstants.KNIGHT.toUpperCase()));
       }
     }

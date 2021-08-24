@@ -1,6 +1,6 @@
 import { Board } from './board';
 import { Movement } from './movement';
-import { IPiece, Piece } from './piece';
+import { Piece } from './piece';
 import { Position } from './position';
 import { ChessConstants } from './constants';
 import { PiezeLong } from './pieceLong';
@@ -25,8 +25,19 @@ export class Queen extends PiezeLong {
 
         for(iterator=0;iterator<4;iterator++)
         {
-            
+         movements = super.possibleMovements(board, this.deltabishop[iterator][0], this.deltabishop[iterator][1]);
+         movements = super.possibleMovements(board,this.deltarook[iterator][0],this.deltarook[iterator][1]);
         }
         return movements;
+    }
+    public canEat(board: Board, delta: Position):boolean{
+        let iterator:number;
+        for(iterator = 0; iterator < 4; iterator++)
+        {
+            if(super.canEat(board,delta, this.deltarook[iterator][0],this.deltarook[iterator][1]) || super.canEat(board,delta,this.deltabishop[iterator][0],this.deltabishop[iterator][1])){
+                return true;
+            }
+        }
+        return true;
     }
 }

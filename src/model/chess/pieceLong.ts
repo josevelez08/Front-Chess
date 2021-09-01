@@ -29,7 +29,7 @@ export class PiezeLong extends Piece {
             else 
             {
                 free = false;
-                if(Board.insideBoard(this.position.col+movementcol, this.position.row+movementrow) && board.getPiece(this.position.col+movementcol,this.position.row+movementrow).getColor() != this.color)
+                if(Board.insideBoard(this.position.col+movementcol, this.position.row+movementrow) && board.getPiece(this.position.col+movementcol,this.position.row+movementrow)?.getColor() != this.color)
                 {
                     movements.push(new Movement(this.position,movementcol, movementrow));
                 }

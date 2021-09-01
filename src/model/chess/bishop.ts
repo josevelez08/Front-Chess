@@ -11,7 +11,7 @@ export class Bishop extends PiezeLong {
         super(position,color);
     }
 
-    private deltabishop:number[][] = [[1,-1], [1,1], [-1,1], [-1,-1]]; 
+    private deltaBishop:number[][] = [[1,-1], [1,1], [-1,1], [-1,-1]]; 
 
     public copy():Piece{
         return new Bishop(this.color, new Position(this.position.col,this.position.row));
@@ -27,7 +27,7 @@ export class Bishop extends PiezeLong {
 
         for(iterator=0; iterator<4;iterator++)
         {
-            super.possibleMovements(board,this.deltabishop[iterator][0],this.deltabishop[iterator][1])
+            super.possibleMovements(board,this.deltaBishop[iterator][0],this.deltaBishop[iterator][1])
         }
         return movements;
     }
@@ -37,7 +37,7 @@ export class Bishop extends PiezeLong {
 
         for(iterator=0;iterator<4;iterator++)
         {
-            if(super.canEat(board,delta,this.deltabishop[iterator][0],this.deltabishop[iterator][1]))
+            if(super.canEat(board,delta,this.deltaBishop[iterator][0],this.deltaBishop[iterator][1]))
             {
                 return true;
             }

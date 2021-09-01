@@ -10,13 +10,13 @@ import { Queen } from './queen';
 import { Rook } from './rook';
 
 export class Piece {
-  constructor(protected color: number, protected position: Position) {}
+  constructor(protected color: number, public position: Position) {}
   //return the piece's position
-  getPosition(): Position | null | undefined {
+  getPosition(): Position {
     return this.position;
   }
 
-  public setPosition(position: Position):void | null | undefined {
+  public setPosition(position: Position): void | null | undefined {
     this.position = position;
   }
 
@@ -28,7 +28,7 @@ export class Piece {
     character: string,
     column: number,
     row: number
-  ): Piece | null | undefined {
+  ): Piece | null {
     let color: number =
       character === character.toLocaleLowerCase()
         ? ChessConstants.WHITE
@@ -50,13 +50,15 @@ export class Piece {
       case ChessConstants.EMPTY_BOX:
         return null;
     }
+    return null;
   }
-  public static pieceString(piece: Piece & IPiece){
-    if(piece == null)
-    {
+  public static pieceString(piece: Piece & IPiece) {
+    if (piece == null) {
       return ChessConstants.EMPTY_BOX;
     }
-    return (piece.color === ChessConstants.WHITE)? piece.pieceString() : piece.pieceString().toUpperCase();
+    return piece.color === ChessConstants.WHITE
+      ? piece.pieceString()
+      : piece.pieceString().toUpperCase();
   }
 }
 
